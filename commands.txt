@@ -4,4 +4,4 @@ firebase emulators:start --only hosting
 /viewMessages.html
 
 ### Git Push ###
-git add --all && git commit -m "Messages working" && git push
+git add --all && git commit -m "Implemented stretch goals day 8" && git push   
