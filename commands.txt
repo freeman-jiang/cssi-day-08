@@ -3,4 +3,5 @@ firebase emulators:start --only hosting
 
 /viewMessages.html
 
-git add --all && git commit -m "Changed input functionality" && git push
+### Git Push ###
+git add --all && git commit -m "Got firebase connection" && git push
