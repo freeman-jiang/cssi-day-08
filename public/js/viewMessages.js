@@ -1,6 +1,6 @@
 const getMessages = () => {
-    const input = document.getElementById('textField').value
-    console.log(input)
+    const passcode = document.querySelector('#passcode').value
+    console.log(passcode)
     // console.log('passcodeInput');
     
 }
