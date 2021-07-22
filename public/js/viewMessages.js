@@ -20,16 +20,41 @@ const getMessages = () => {
     }
     const messagesRef = firebase.database().ref();
     messagesRef.on('value', snapshot => {
-        const data = snapshot.val()    
-        for (let key in data) {
-            if (key === passcode) {
+        let correct = false
+        const data = snapshot.val() 
+        message.innerHTML = ''   
+        for (let id in data) {
+            // console.log(data[id].passcode)
+            if (data[id].passcode === passcode) {
                 message.style.color = 'black'
-                message.innerHTML = (data[key])
-                return
+                message.innerHTML += (`${data[id].message} <br />`)
+                correct = true
             }
         }
-        message.innerHTML = 'Sorry. Your passcode is incorrect. Please try again.'
-        message.style.color = 'red'
-        count++
+        
+        if (!correct) {
+            message.innerHTML = 'Sorry. Your passcode is incorrect. Please try again.'
+            message.style.color = 'red'
+            count++
+        }
+        
     })
+
+    // messagesRef.on('value', snapshot => {
+    //     const data = snapshot.val()    
+    //     for (let id in data) {
+    //         // console.log(data[id].passcode)
+    //         if (data[id].passcode === passcode) {
+    //             message.style.color = 'black'
+    //             message.innerHTML = (`${data[id].message} <br />`)
+    //             return
+    //         }
+    //     }
+        
+    //     message.innerHTML = 'Sorry. Your passcode is incorrect. Please try again.'
+    //     message.style.color = 'red'
+    //     count++
+    // })
+
+
 }

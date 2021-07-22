@@ -1,4 +1,12 @@
-const x = [1,2,3]
-const y = x
-y.push(4)
-console.log(x,y)
+const onSubmit = () => {
+    const passcode = document.querySelector('#passcode').value
+    const message = document.querySelector('#message').value
+    console.log(passcode, message)
+    const payload = {
+        passcode,
+        message
+        // this is JS shorthand object value notation
+    }
+    console.log(payload);
+    firebase.database().ref().push(payload)
+}
